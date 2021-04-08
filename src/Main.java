@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
         AdjacencyListGraph graph = new AdjacencyListGraph();
 
 Vertex Eskildstrup = new Vertex("Eskildstrup");

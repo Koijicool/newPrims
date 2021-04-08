@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
+//this class creates an adjacency list graph
 public class AdjacencyListGraph {
 
     private List<Vertex> vertices;
@@ -43,8 +44,7 @@ public class AdjacencyListGraph {
     }
 }
 
-/// make edge
-
+// this class makes and holds information on edges we use in our graph
 class Edge {
     private double weight;
     private Vertex startVertex;
@@ -80,8 +80,8 @@ class Edge {
         this.targetVertex = targetVertex;
     }
 }
-// vertex
 
+// this class creates a vertex and adds functions to compare and print out vertexes
 class Vertex implements Comparable<Vertex>{
 
     private String name;
@@ -148,6 +148,10 @@ class Vertex implements Comparable<Vertex>{
 
 }
 
+//this class is responsible for handling our prims algorithm
+//TODO: remove unused functions and values or bring them into use
+//TODO: rename algorithm to something more precise
+
 class Algorithm {
 
     private List<Vertex> vertexList;
@@ -160,29 +164,30 @@ class Algorithm {
         //this.Q = new MinHeap<>();
     }
 
-    public void spanningTree(){
-
-        for(Vertex vertex : vertexList){
-            if( !vertex.isVisited() ){
-                Prim(vertex);
+    public void spanningTree(){                             //uses the prim function to create minimum spanning tree
+        for(Vertex vertex : vertexList){                    //for all vertexes in our vertex list
+            if( !vertex.isVisited() ){                      //if the vertex has not been visited, run prim
+                Prim(vertex);                               //prim finds the minimum edge out, and adds it to the tree
             }
         }
     }
 
+
     private void Prim(Vertex vertex){
 
-        vertex.setMinDistance(0);
+        vertex.setMinDistance(0);                           //resets minimum distance to 0
         Q.add(vertex);
         //  Q.Insert(vertex);
 
         while( !Q.isEmpty() ){
-            Vertex v = Q.poll();
+            Vertex v = Q.poll();                            //poll removes and returns the element at the head of the queue
            //    Vertex v = Q.extractMin();
-            scanVertex(v);
+            scanVertex(v);                                  //scan finds the lowest valued edge from the current tree
         }
     }
 
-    private void scanVertex(Vertex vertex) {
+    private void scanVertex(Vertex vertex) {                //this method goes through the edges and compares their weight,
+                                                                    // and saves the minimum distance and edge
         vertex.setVisited(true);
 
         for( Edge edge : vertex.getAdjacencies() ) {
