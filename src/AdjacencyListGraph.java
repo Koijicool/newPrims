@@ -149,7 +149,6 @@ class Vertex implements Comparable<Vertex>{
 }
 
 //this class is responsible for handling our prims algorithm
-//TODO: remove unused functions and values or bring them into use
 //TODO: rename algorithm to something more precise
 
 class Algorithm {
