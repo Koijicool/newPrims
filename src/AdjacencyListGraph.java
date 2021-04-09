@@ -164,11 +164,12 @@ class Algorithm {
     }
 
     public void spanningTree(){                             //uses the prim function to create minimum spanning tree
-        for(Vertex vertex : vertexList){                    //for all vertexes in our vertex list
+        Vertex vertex = vertexList.get(0);
+      //  for(Vertex vertex : vertexList){                    //for all vertexes in our vertex list
             if( !vertex.isVisited() ){                      //if the vertex has not been visited, run prim
                 Prim(vertex);                               //prim finds the minimum edge out, and adds it to the tree
             }
-        }
+       // }
     }
 
 
